@@ -1,0 +1,49 @@
+{
+  "name": "blaze-elements",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:elmariofredo/blaze-elements.git",
+  "author": "ngParty",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --env.dev --hot --history-api-fallback"
+  },
+  "dependencies": {
+    "blaze": "^3.2.0",
+    "core-js": "^2.4.1",
+    "skatejs": "4.1.0",
+    "skatejs-web-components": "5.0.0",
+    "tslib": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "6.0.45",
+    "awesome-typescript-loader": "^3.0.0-beta.8",
+    "copy-webpack-plugin": "4.0.0",
+    "css-loader": "0.25.0",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "2.24.1",
+    "identity-obj-proxy": "3.0.0",
+    "image-webpack-loader": "3.0.0",
+    "json-loader": "0.5.4",
+    "node-sass": "^3.13.0",
+    "postcss-cssnext": "2.8.0",
+    "postcss-loader": "0.13.0",
+    "postcss-reporter": "1.4.1",
+    "progress-bar-webpack-plugin": "1.9.0",
+    "pushstate-server": "2.1.0",
+    "raw-loader": "^0.5.1",
+    "rimraf": "2.5.4",
+    "sass-loader": "^4.0.2",
+    "style-loader": "0.13.1",
+    "to-string-loader": "^1.1.5",
+    "ts-loader": "1.2.2",
+    "tslint": "4.0.2",
+    "tslint-react": "1.1.0",
+    "typescript": "2.2.0-dev.20161126",
+    "url-loader": "0.5.7",
+    "webpack": "2.1.0-beta.25",
+    "webpack-config-utils": "2.1.0",
+    "webpack-dev-server": "2.1.0-beta.9"
+  }
+}

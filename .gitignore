@@ -39,3 +39,10 @@ jspm_packages
 # IDE
 .idea
 .code
+
+# Dist
+dist
+
+# Tmp
+tmp
+ts-output
