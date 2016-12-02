@@ -8,7 +8,8 @@ const components = [
   'button',
   'toggle',
   'modal',
-  'tooltip'
+  'tooltip',
+  'input'
 ];
 
 const componentsMarkup = components.map(( componentName ) => {
