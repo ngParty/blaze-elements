@@ -1,6 +1,6 @@
 import './style.css';
 
-import './components/index'
+import './elements/index'
 
 const mountPoint = document.getElementById('app');
 
@@ -22,7 +22,7 @@ const componentsMarkup = components.map(( componentName ) => {
 
 const App = () => (`
   <section>
-    <h1>Blaze WC components catalogue</h1>
+    <h1>Blaze WC elements catalogue</h1>
     ${ componentsMarkup.join( '' ) }
   </section>
 `);
