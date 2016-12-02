@@ -2,10 +2,6 @@ import { h, Component, prop, emit } from 'skatejs';
 import styles from './Input.scss';
 import { css } from '../../utils/css';
 
-const InputColors = {
-  success: 'success',
-  error: 'error'
-};
 
 const InputSizes = {
   xsmall: 'xsmall',
@@ -16,16 +12,24 @@ const InputSizes = {
   'super': 'super' // super is reserved word!!!
 };
 
-type InputColorsType = typeof InputColors;
+type TypesType = {
+  text: string,
+  password: string,
+  reset: string,
+  hidden: string,
+  number: string
+}
+
 type InputSizesType = typeof InputSizes;
 
 //public
 interface InputProps extends JSX.HTMLProps<HTMLInputElement|Input> {
   value: string,
-  color?: keyof InputColorsType,
+  valid?: string,
   placeholder?: string,
   disabled?: boolean,
   inputSize?: keyof InputSizesType,
+  type?: keyof TypesType
 }
 
 export class Input extends Component {
@@ -36,17 +40,19 @@ export class Input extends Component {
       value: prop.string({
         attribute: true
       }),
-      color: prop.string(),
+      valid: prop.string(),
       placeholder: prop.string(),
       disabled: prop.boolean(),
+      type: prop.string(),
       inputSize: prop.string(),
     }
   }
 
-  color = '';
+  valid: string;
   value = '';
   inputSize: string;
   placeholder: string;
+  type = 'text';
   disabled: boolean;
 
   inputElement: HTMLInputElement;
@@ -62,12 +68,12 @@ export class Input extends Component {
   }
 
   renderCallback() {
-    const { color, value, placeholder, disabled, inputSize } = this;
+    const { valid, value, placeholder, disabled, inputSize, type } = this;
     const className = css(
       'c-field',
       {
-        'c-field--success': color === InputColors.success,
-        'c-field--error': color === InputColors.error,
+        'c-field--success': valid === 'true',
+        'c-field--error': valid === 'false',
         'u-xsmall': inputSize === InputSizes.xsmall,
         'u-small': inputSize === InputSizes.small,
         'u-medium': inputSize === InputSizes.medium,
@@ -77,13 +83,12 @@ export class Input extends Component {
       }
     );
 
-
     return [
       <style>{styles}</style>,
       <input
         ref={(_ref: HTMLInputElement)=>this.inputElement=_ref}
         className={className}
-        type="text"
+        type={type}
         value={value}
         onChange={this.provideValue}
         placeholder={placeholder}

@@ -9,14 +9,14 @@ export class Demo extends Component {
     return [
       <style>{styles}</style>,
       <div>
-        <Input color="error" value="error state"
+        <Input valid="false" value="error state"
                placeholder="placeholder"
                onKeyup={() => { console.log("onKeyUp")}}
                onFocus={() => { console.log("onFocus")}}
                onBlur={() => { console.log("onBlur")}}
                onChange={() => { console.log("onChange")}}
         ></Input>
-        <Input color="success" value="success state"
+        <Input valid="true" value="success state"
                onChange={() => { console.log("onChange")}}
                inputSize="xlarge"
         ></Input>
@@ -27,6 +27,12 @@ export class Demo extends Component {
         <Input value="disabled state"
                disabled
                inputSize="xsmall"
+        ></Input>
+        <Input value="password"
+               type="password"
+        ></Input>
+        <Input value=""
+               type="number"
         ></Input>
       </div>
     ]
