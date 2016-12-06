@@ -90,7 +90,7 @@ export class Input extends Component {
         className={className}
         type={type}
         value={value}
-        onChange={this.provideValue}
+        onInput={this.provideValue}
         placeholder={placeholder}
         disabled={disabled}
       />
