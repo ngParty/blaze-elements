@@ -17,7 +17,11 @@ type TypesType = {
   password: string,
   reset: string,
   hidden: string,
-  number: string
+  number: string,
+  email: string,
+  url: string,
+  tel: string,
+  search: string
 }
 
 type InputSizesType = typeof InputSizes;
