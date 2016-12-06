@@ -28,8 +28,8 @@ export class Demo extends Component {
     return [
       <style>{styles}</style>,
       <Button type="info" onClick={this.toggleModal}>Open Modal</Button>,
-      <Modal isOpen={isModalOpen} onModalClose={this.toggleModal}>
-        <span slot="title">Modal heading</span>
+      <Modal isOpen={isModalOpen} onModalClose={this.toggleModal} closeTitle="Close NOW">
+        <span slot="title">Modal <em>heading</em></span>
         <span>
           This is the modal body
           <input type="text"/>
