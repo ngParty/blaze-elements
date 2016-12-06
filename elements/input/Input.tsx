@@ -33,7 +33,9 @@ interface InputProps extends JSX.HTMLProps<HTMLInputElement|Input> {
   placeholder?: string,
   disabled?: boolean,
   inputSize?: keyof InputSizesType,
-  type?: keyof TypesType
+  type?: keyof TypesType,
+  required?: boolean,
+  maxLength?: number,
 }
 
 export class Input extends Component {
@@ -49,6 +51,8 @@ export class Input extends Component {
       disabled: prop.boolean(),
       type: prop.string(),
       inputSize: prop.string(),
+      required: prop.boolean(),
+      maxLength: prop.number(),
     }
   }
 
@@ -58,6 +62,8 @@ export class Input extends Component {
   placeholder: string;
   type = 'text';
   disabled: boolean;
+  required: boolean;
+  maxLength: number;
 
   inputElement: HTMLInputElement;
 
@@ -72,7 +78,7 @@ export class Input extends Component {
   }
 
   renderCallback() {
-    const { valid, value, placeholder, disabled, inputSize, type } = this;
+    const { valid, value, placeholder, disabled, inputSize, type, required, maxLength } = this;
     const className = css(
       'c-field',
       {
@@ -97,6 +103,8 @@ export class Input extends Component {
         onInput={this.provideValue}
         placeholder={placeholder}
         disabled={disabled}
+        required={required}
+        maxLength={maxLength}
       />
     ]
   }
