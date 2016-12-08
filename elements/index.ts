@@ -1,3 +1,4 @@
+import './badge'
 import './button'
 import './toggle'
 import './modal'
