@@ -1,4 +1,4 @@
-import { h, Component, prop } from 'skatejs';
+import { h, Component, prop, emit } from 'skatejs';
 import styles from './Button.scss';
 import { css } from '../../utils/css';
 

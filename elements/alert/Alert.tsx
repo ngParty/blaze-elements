@@ -1,4 +1,4 @@
-import { h, Component, prop } from 'skatejs';
+import { h, Component, prop, emit } from 'skatejs';
 import styles from './Alert.scss';
 import { css } from '../../utils/css';
 import { Button } from '../button/Button';
@@ -15,7 +15,9 @@ type AlertColorsType = typeof AlertColors;
 
 // public
 interface AlertProps extends JSX.HTMLProps<HTMLElement | Alert> {
-  color?: keyof AlertColorsType
+  color?: keyof AlertColorsType,
+  isOpen?: boolean,
+  onAlertClose?: Function,
 }
 
 export class Alert extends Component {
@@ -23,14 +25,29 @@ export class Alert extends Component {
   static get is() { return 'bl-alert' }
   static get props() {
     return {
-      color: prop.string()
+      color: prop.string(),
+      isOpen: prop.boolean({
+        attribute: true
+      })
     }
+  }
+
+
+  isOpen = false;
+  private close() {
+    this.isOpen = false;
+    emit(this, 'alertClose');
+  }
+
+  connectedCallback(){
+    super.connectedCallback();
+    this.close = this.close.bind(this);
   }
 
   color: string;
 
   renderCallback() {
-    const { color } = this;
+    const { color, isOpen } = this;
     const className = css(
       'c-alert',{
         'c-alert--brand': color === AlertColors.brand,
@@ -43,8 +60,8 @@ export class Alert extends Component {
 
     return [
       <style>{styles}</style>,
-      <div className={className}>
-        <Button type="close">×</Button>
+      isOpen && <div className={className}>
+        <Button type="close" onClick={this.close}>×</Button>
         <slot />
       </div>
     ]
