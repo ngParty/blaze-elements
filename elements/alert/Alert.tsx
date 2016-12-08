@@ -1,6 +1,7 @@
 import { h, Component, prop } from 'skatejs';
 import styles from './Alert.scss';
 import { css } from '../../utils/css';
+import { Button } from '../button/Button';
 
 const AlertColors = {
   brand: 'brand',
@@ -43,7 +44,7 @@ export class Alert extends Component {
     return [
       <style>{styles}</style>,
       <div className={className}>
-        <button className="c-button c-button--close">×</button>
+        <Button type="close">×</Button>
         <slot />
       </div>
     ]
