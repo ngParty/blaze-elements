@@ -5,6 +5,7 @@ import './elements/index'
 const mountPoint = document.getElementById('app');
 
 const components = [
+  'alert',
   'badge',
   'button',
   'toggle',
